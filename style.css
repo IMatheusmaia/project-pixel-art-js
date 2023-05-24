@@ -1,0 +1,97 @@
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+.container-content{
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+#title{
+    color: red;
+    font-size: 3rem;
+    font-family: 'VT323', monospace;
+    text-align: center;
+
+}
+
+#color-palette{
+    
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 1rem;
+    justify-content: center;
+}
+
+.top-section{
+    position: relative;
+}
+
+#button-random-color{
+    position: absolute;
+    top:5rem;
+    right: 0;
+    padding: .5rem;
+    background-color: red;
+    border: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#button-random-color:hover{
+    background-color: white;
+    color: black;
+    transition: .3s;
+    border: black 2px solid;
+}
+.input-zone{
+    background-color: rgb(61, 42, 165);
+    height: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-zone > form > input{
+    width: 3rem;
+    height: 2rem;
+    outline: none;
+}
+
+.input-zone > form > button{
+    width: 3rem;
+    height: 2.31rem;
+    outline: none;
+    border: none;
+    background-color: green;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.input-zone > form > button:hover{
+    background-color: greenyellow;
+    border: black 2px solid;
+    transition: .5s;
+}
+
+.pixel-container{
+    background-color: green;
+    height: 10rem;
+}
+
+.color{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    border: 1px solid black;
+
+}
+
+.color:hover{
+    height: 3.5rem;
+    width: 3.5rem;
+    transition: .3s;
+}
