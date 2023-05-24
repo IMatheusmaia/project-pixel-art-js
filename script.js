@@ -59,7 +59,7 @@ function renderInput(){
     const input= document.createElement('input');
         input.type= 'number';
         input.max= '10';
-        input.min= '1'
+        input.min= '5'
         input.name= 'number';
         input.id= 'input-number';
 
@@ -78,7 +78,7 @@ function assignColor(){
         colors[0].style= 'background-color: black';
     let colorList= ['000000'];
 
-    let colorKey= localStorage.getItem('@trybe:colors');
+    let colorKey= localStorage.getItem('colorPalette');
     let storageColors= JSON.parse(colorKey);
 
     if(colorKey){
@@ -95,7 +95,7 @@ function assignColor(){
         }
        
        let colorsKey= JSON.stringify(colorList);
-        localStorage.setItem('@trybe:colors', colorsKey);
+        localStorage.setItem('colorPalette', colorsKey);
     }
 }
 assignColor();
@@ -104,7 +104,7 @@ function resetColors(){
     const resetButton= document.querySelector('#button-random-color');
 
         resetButton.addEventListener('click', (e) =>{
-            localStorage.removeItem('@trybe:colors');
+            localStorage.removeItem('colorPalette');
             assignColor();
         })
 }
