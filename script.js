@@ -14,7 +14,7 @@ function renderElements(){
     const ulPalette= document.createElement('ul');
         ulPalette.id='color-palette';
         
-        topSection.insertAdjacentHTML('beforeend', '<button id="button-random-color">Resetar cores</button>')
+        topSection.insertAdjacentHTML('beforeend', '<button id="button-random-color">Cores aleatórias</button>')
 
     const inputZone= document.createElement('div');
             inputZone.classList='input-zone';
