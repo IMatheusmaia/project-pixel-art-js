@@ -75,7 +75,7 @@ renderInput();
 
 function assignColor(){
     const colors= document.querySelectorAll('.color');
-        colors[0].style= 'background-color: black';
+        colors[0].style= 'background-color: #000000';
     let colorList= ['000000'];
 
     let colorKey= localStorage.getItem('colorPalette');
