@@ -89,7 +89,7 @@ function assignColor(){
     
     }else{
         for(let i=1; i<colors.length; i++){
-            let randomColor= (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
+            let randomColor= (Math.random() * 0xfbfff0 << 0).toString(16).padStart(6, '0');
                 colors[i].style= 'background-color:' + `#${randomColor}`
             colorList.push(randomColor);
         }
