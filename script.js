@@ -127,7 +127,7 @@ function makeNumberOfPixels(){
         const valueInput= document.querySelector('#board-size');
     
         let value= valueInput.value;
-        if(value < 5 || value > 10){
+        if(value < 0 || value > 10){
             alert('Board inválido!')
         }else{
         const pixelBoard= document.querySelector('#pixel-board');
