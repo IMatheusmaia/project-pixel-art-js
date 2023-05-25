@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 .container-content{
-    width: 90%;
+    width: 95%;
     margin: 0 auto;
 }
 
@@ -26,6 +26,7 @@
 
 .top-section{
     position: relative;
+    padding: 1rem;
 }
 
 #button-random-color{
@@ -47,7 +48,6 @@
     border: black 2px solid;
 }
 .input-zone{
-    background-color: rgb(61, 42, 165);
     height: 3rem;
     display: flex;
     flex-direction: row;
@@ -55,17 +55,20 @@
     align-items: center;
 }
 
+
 .input-zone > form > input{
     width: 3rem;
     height: 2rem;
     outline: none;
+    border: none;
+    background-color: rgba(202, 202, 202, 0.623);
+    padding: .2rem;
 }
 
 .input-zone > form > button{
     width: 3rem;
-    height: 2.31rem;
+    height: 2.4rem;
     outline: none;
-    border: none;
     background-color: green;
     font-weight: 600;
     cursor: pointer;
@@ -79,7 +82,8 @@
 
 .pixel-container{
     background-color: green;
-    height: 10rem;
+    height: auto;
+   
 }
 
 .color{
@@ -94,5 +98,27 @@
     height: 3.5rem;
     width: 3.5rem;
     transition: .3s;
+    cursor: crosshair;
+}
+
+.pixel-board{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+}
+.pixel-board > ul {
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+.pixel-board > ul > li{
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    background-color: white;
     cursor: crosshair;
 }

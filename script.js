@@ -62,8 +62,10 @@ function renderInput(){
         input.min= '5'
         input.name= 'number';
         input.id= 'input-number';
+        input.value= '5'
 
     const submit= document.createElement('button');
+        submit.id= 'vqvButton'
         submit.type= 'submit';
         submit.innerText='VQV';
 
@@ -108,4 +110,48 @@ function resetColors(){
             assignColor();
         })
 }
-resetColors()
+resetColors();
+
+
+function makeNumberOfPixels(){
+    const vqvButton= document.querySelector('#vqvButton');
+    const inputNumber= document.querySelector('#input-number');
+        renderPixelBoard(inputNumber.value);
+    
+    vqvButton.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const valueInput= document.querySelector('#input-number');
+    
+        let value= valueInput.value;
+        const pixelBoard= document.querySelector('.pixel-board');
+            pixelBoard.remove();
+
+        renderPixelBoard(value);
+    })
+
+}
+makeNumberOfPixels()
+
+function renderPixelBoard(size){
+    const pixelContainer= document.querySelector('.pixel-container');
+
+    const pixelBoard= document.createElement('div');
+        pixelBoard.classList='pixel-board';
+
+    for(let i=0; i<size; i++){
+        pixelBoard.insertAdjacentHTML('beforeend', '<ul></ul>');
+    }
+
+    pixelContainer.appendChild(pixelBoard);
+
+    const collunsBoard= document.querySelectorAll('.pixel-board > ul');
+
+    for(let i=0; i< collunsBoard.length; i++){
+        for(let j=0; j< size; j++){
+            collunsBoard[i].insertAdjacentHTML('beforeend', '<li></li>');
+        }
+    }
+
+    
+}
+
