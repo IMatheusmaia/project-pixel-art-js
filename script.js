@@ -49,31 +49,7 @@ function renderColorsPalette(){
     const color6= document.createElement('li');
         color6.classList= 'color';
 
-    const hide1= document.createElement('li');
-        hide1.classList= 'hide';
-        hide1.style= 'background-color: black';
-
-        const hide2= document.createElement('li');
-        hide2.classList= 'hide';
-        hide2.style= 'background-color: red'
-
-        const hide3= document.createElement('li');
-        hide3.classList= 'hide';
-        hide3.style= 'background-color: green'
-
-        const hide4= document.createElement('li');
-        hide4.classList= 'hide';
-        hide4.style= 'background-color: blue'
-
-        const hide5= document.createElement('li');
-        hide5.classList= 'hide';
-        hide5.style= 'background-color: pink'
-
-
         ulPalette.append(color1, color2, color3, color4, color5, color6);
-        ulPalette.append(hide1, hide2, hide3, hide4, hide5);
-
-        
 
 }
 renderColorsPalette();
@@ -119,8 +95,10 @@ function assignColor(){
     
     }else{
         for(let i=1; i<colors.length; i++){
-            let randomColor= (Math.random() * 0xfbfff0 << 0).toString(16).padStart(6, '0');
-                colors[i].style= 'background-color:' + `#${randomColor}`
+            // let randomColor= (Math.random() * 0xffffff << 0).toString(16).padStart(6, '0');
+            let randomColor= 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+
+                colors[i].style= 'background-color:' + `${randomColor}`
             colorList.push(randomColor);
         }
        
