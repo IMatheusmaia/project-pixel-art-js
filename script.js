@@ -189,17 +189,14 @@ function clearPixelboard(){
     const pixels= document.querySelectorAll('.pixel');
 
     const pixelContainer= document.querySelector('.pixel-container');
+        pixelContainer.insertAdjacentHTML('afterbegin', '<button id= "clear-board">Limpar</button>');
 
-    const clearBoard= document.createElement('button');
-        clearBoard.id= 'clear-board';
-        clearBoard.innerText= 'Limpar';
-
-        pixelContainer.appendChild(clearBoard);
-
+    const clearBoard= document.querySelector('#clear-board');
     clearBoard.addEventListener('click', (e)=>{
         pixels.forEach(pixel=>{
-            pixel.style.backgroundColor= 'white'
+            pixel.style.backgroundColor= ''
         })
-    })
+    });
+
 }
 clearPixelboard();
