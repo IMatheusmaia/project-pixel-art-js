@@ -124,9 +124,12 @@ function makeNumberOfPixels(){
     
         let value= valueInput.value;
         const pixelBoard= document.querySelector('#pixel-board');
+        const clearBoard= document.querySelector('#clear-board');
             pixelBoard.remove();
+            clearBoard.remove();
 
         renderPixelBoard(value);
+        clearPixelboard();
     })
 
 }
@@ -181,3 +184,22 @@ function paintPixel(){
         })})
 
 }
+
+function clearPixelboard(){
+    const pixels= document.querySelectorAll('.pixel');
+
+    const pixelContainer= document.querySelector('.pixel-container');
+
+    const clearBoard= document.createElement('button');
+        clearBoard.id= 'clear-board';
+        clearBoard.innerText= 'Limpar';
+
+        pixelContainer.appendChild(clearBoard);
+
+    clearBoard.addEventListener('click', (e)=>{
+        pixels.forEach(pixel=>{
+            pixel.style.backgroundColor= 'white'
+        })
+    })
+}
+clearPixelboard();

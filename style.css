@@ -83,6 +83,8 @@
 .pixel-container{
     background-color: green;
     height: auto;
+    display: flex;
+    flex-direction: column;
    
 }
 
@@ -121,4 +123,21 @@
     border: 1px solid black;
     background-color: white;
     cursor: crosshair;
+}
+
+#clear-board{
+    justify-self: center;
+    padding: 1rem;
+    background-color: red;
+    border: none;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+}
+
+#clear-board:hover{
+    background-color: white;
+    color: black;
+    transition: .3s;
+    border: black 2px solid;
 }
