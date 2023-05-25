@@ -1,3 +1,5 @@
+let boardListConfig= [];
+
 function renderElements(){
     const body= document.querySelector('body');
     const containerContent= document.createElement('div');
@@ -45,7 +47,9 @@ function renderColorsPalette(){
         color4.classList= 'color';
     const color5= document.createElement('li');
         color5.classList= 'color';
-        ulPalette.append(color1, color2, color3, color4, color5);
+    const color6= document.createElement('li');
+        color6.classList= 'color';
+        ulPalette.append(color1, color2, color3, color4, color5, color6);
 
 }
 renderColorsPalette();
@@ -142,7 +146,7 @@ function renderPixelBoard(size){
         pixelBoard.id='pixel-board';
 
     for(let i=0; i<size; i++){
-        pixelBoard.insertAdjacentHTML('beforeend', '<ul></ul>');
+        pixelBoard.insertAdjacentHTML('beforeend', `<ul id= "${i+1}"></ul>`);
     }
 
     pixelContainer.appendChild(pixelBoard);
@@ -151,7 +155,7 @@ function renderPixelBoard(size){
 
     for(let i=0; i< collunsBoard.length; i++){
         for(let j=0; j< size; j++){
-            collunsBoard[i].insertAdjacentHTML('beforeend', '<li class="pixel"></li>');
+            collunsBoard[i].insertAdjacentHTML('beforeend', `<li class= "pixel"></li>`);
         }
     }
 
@@ -178,12 +182,23 @@ function paintPixel(){
     const colorSelected= document.querySelector('.selected');
 
     let currentColor= colorSelected.style.backgroundColor;
+    let cont= 0
     const pixel= document.querySelectorAll('.pixel');
         pixel.forEach(element => { element.addEventListener('click', (e)=>{
-            e.target.style= 'background-color:' + `${currentColor}`
-        })})
+            cont++
+            
+            e.target.style= 'background-color:' + `${currentColor}`;
+            e.target.id= `${currentColor} (${cont})`
+
+            const {id}= e.target;
+            
+            
+        })
+    
+    })
 
 }
+
 
 function clearPixelboard(){
     const pixels= document.querySelectorAll('.pixel');
@@ -195,6 +210,8 @@ function clearPixelboard(){
     clearBoard.addEventListener('click', (e)=>{
         pixels.forEach(pixel=>{
             pixel.style.backgroundColor= ''
+            pixel.id= ''
+            boardListConfig= []
         })
     });
 
