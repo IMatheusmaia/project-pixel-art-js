@@ -123,7 +123,7 @@ function makeNumberOfPixels(){
         const valueInput= document.querySelector('#input-number');
     
         let value= valueInput.value;
-        const pixelBoard= document.querySelector('.pixel-board');
+        const pixelBoard= document.querySelector('#pixel-board');
             pixelBoard.remove();
 
         renderPixelBoard(value);
@@ -136,7 +136,7 @@ function renderPixelBoard(size){
     const pixelContainer= document.querySelector('.pixel-container');
 
     const pixelBoard= document.createElement('div');
-        pixelBoard.classList='pixel-board';
+        pixelBoard.id='pixel-board';
 
     for(let i=0; i<size; i++){
         pixelBoard.insertAdjacentHTML('beforeend', '<ul></ul>');
@@ -144,11 +144,11 @@ function renderPixelBoard(size){
 
     pixelContainer.appendChild(pixelBoard);
 
-    const collunsBoard= document.querySelectorAll('.pixel-board > ul');
+    const collunsBoard= document.querySelectorAll('#pixel-board > ul');
 
     for(let i=0; i< collunsBoard.length; i++){
         for(let j=0; j< size; j++){
-            collunsBoard[i].insertAdjacentHTML('beforeend', '<li></li>');
+            collunsBoard[i].insertAdjacentHTML('beforeend', '<li class="pixel"></li>');
         }
     }
 
