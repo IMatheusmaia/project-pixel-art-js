@@ -65,11 +65,11 @@ function renderInput(){
         input.max= '10';
         input.min= '5'
         input.name= 'number';
-        input.id= 'input-number';
+        input.id= 'board-size';
         input.value= '5'
 
     const submit= document.createElement('button');
-        submit.id= 'vqvButton'
+        submit.id= 'generate-board'
         submit.type= 'submit';
         submit.innerText='VQV';
 
@@ -118,15 +118,18 @@ resetColors();
 
 
 function makeNumberOfPixels(){
-    const vqvButton= document.querySelector('#vqvButton');
-    const inputNumber= document.querySelector('#input-number');
+    const vqvButton= document.querySelector('#generate-board');
+    const inputNumber= document.querySelector('#board-size');
         renderPixelBoard(inputNumber.value);
     
     vqvButton.addEventListener('click', (e)=>{
         e.preventDefault();
-        const valueInput= document.querySelector('#input-number');
+        const valueInput= document.querySelector('#board-size');
     
         let value= valueInput.value;
+        if(value < 5 || value > 10){
+            alert('Board inválido!')
+        }else{
         const pixelBoard= document.querySelector('#pixel-board');
         const clearBoard= document.querySelector('#clear-board');
             pixelBoard.remove();
@@ -134,6 +137,7 @@ function makeNumberOfPixels(){
 
         renderPixelBoard(value);
         clearPixelboard();
+        }
     })
 
 }
@@ -178,10 +182,13 @@ function selectedColor(){
 }
 selectedColor();
 
+
 function paintPixel(){
     const colorSelected= document.querySelector('.selected');
 
     let currentColor= colorSelected.style.backgroundColor;
+
+    
     let cont= 0
     const pixel= document.querySelectorAll('.pixel');
         pixel.forEach(element => { element.addEventListener('click', (e)=>{
