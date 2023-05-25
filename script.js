@@ -155,3 +155,8 @@ function renderPixelBoard(size){
     
 }
 
+function selectedColor(){
+    const colors= document.querySelectorAll('.color');
+        colors[0].classList.add('selected');
+}
+selectedColor();
