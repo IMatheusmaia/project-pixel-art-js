@@ -158,13 +158,26 @@ function renderPixelBoard(size){
 function selectedColor(){
     const colors= document.querySelectorAll('.color');
         colors[0].classList.add('selected');
+        paintPixel();
 
     colors.forEach(element=>{
         element.addEventListener('click', (e)=>{
         const listColors= document.querySelectorAll('.color');
             listColors.forEach(color=>color.classList.remove('selected'));
             e.target.classList.add('selected');
+            paintPixel();
         })
     })
 }
 selectedColor();
+
+function paintPixel(){
+    const colorSelected= document.querySelector('.selected');
+
+    let currentColor= colorSelected.style.backgroundColor;
+    const pixel= document.querySelectorAll('.pixel');
+        pixel.forEach(element => { element.addEventListener('click', (e)=>{
+            e.target.style= 'background-color:' + `${currentColor}`
+        })})
+
+}
