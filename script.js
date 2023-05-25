@@ -36,7 +36,18 @@ renderElements()
 
 function renderColorsPalette(){
     const ulPalette= document.querySelector('#color-palette');
-
+    const color1= document.createElement('li');
+        color1.classList= 'color';
+    const color2= document.createElement('li');
+        color2.classList= 'color';
+    const color3= document.createElement('li');
+        color3.classList= 'color';
+    const color4= document.createElement('li');
+        color4.classList= 'color';
+    const color5= document.createElement('li');
+        color5.classList= 'color';
+    const color6= document.createElement('li');
+        color6.classList= 'color';
 
     const hide1= document.createElement('li');
         hide1.classList= 'hide';
@@ -57,23 +68,12 @@ function renderColorsPalette(){
         const hide5= document.createElement('li');
         hide5.classList= 'hide';
         hide5.style= 'background-color: pink'
-    
-    const color1= document.createElement('li');
-        color1.classList= 'color';
-    const color2= document.createElement('li');
-        color2.classList= 'color';
-    const color3= document.createElement('li');
-        color3.classList= 'color';
-    const color4= document.createElement('li');
-        color4.classList= 'color';
-    const color5= document.createElement('li');
-        color5.classList= 'color';
-    const color6= document.createElement('li');
-        color6.classList= 'color';
-        
-        ulPalette.append(hide1, hide2, hide3, hide4, hide5);
+
 
         ulPalette.append(color1, color2, color3, color4, color5, color6);
+        ulPalette.append(hide1, hide2, hide3, hide4, hide5);
+
+        
 
 }
 renderColorsPalette();
