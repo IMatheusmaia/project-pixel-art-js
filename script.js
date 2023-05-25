@@ -158,5 +158,13 @@ function renderPixelBoard(size){
 function selectedColor(){
     const colors= document.querySelectorAll('.color');
         colors[0].classList.add('selected');
+
+    colors.forEach(element=>{
+        element.addEventListener('click', (e)=>{
+        const listColors= document.querySelectorAll('.color');
+            listColors.forEach(color=>color.classList.remove('selected'));
+            e.target.classList.add('selected');
+        })
+    })
 }
 selectedColor();
