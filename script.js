@@ -93,10 +93,9 @@ function assignColor(){
         for(let i=1; i<colors.length; i++){
             
         let randomColor= 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
-        if(randomColor !== 'rgb(256, 256, 256)'){
+        
             colors[i].style= 'background-color:' + `${randomColor}`
             colorList.push(randomColor);
-            }
         }
        
         let colorsKey= JSON.stringify(colorList);
