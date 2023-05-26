@@ -81,8 +81,8 @@ renderInput();
 
 function assignColor(){
     const colors= document.querySelectorAll('.color');
-        colors[0].style= 'background-color: #000000';
-    let colorList= ['000000'];
+        colors[0].style= 'background-color: rgb(0, 0, 0)';
+    let colorList= ['rgb(0, 0, 0)'];
 
     let colorKey= localStorage.getItem('colorPalette');
     let storageColors= JSON.parse(colorKey);
@@ -90,19 +90,19 @@ function assignColor(){
     if(colorKey){
         
         for(let i=1; i<colors.length; i++){
-            colors[i].style= 'background-color:' + `#${storageColors[i]}`
+            colors[i].style= 'background-color:' + `${storageColors[i]}`;
         }
     
     }else{
         for(let i=1; i<colors.length; i++){
-            // let randomColor= (Math.random() * 0xffffff << 0).toString(16).padStart(6, '0');
-            let randomColor= 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+            
+        let randomColor= 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
 
-                colors[i].style= 'background-color:' + `${randomColor}`
+            colors[i].style= 'background-color:' + `${randomColor}`
             colorList.push(randomColor);
         }
        
-       let colorsKey= JSON.stringify(colorList);
+        let colorsKey= JSON.stringify(colorList);
         localStorage.setItem('colorPalette', colorsKey);
     }
 }
