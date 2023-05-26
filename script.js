@@ -44,12 +44,8 @@ function renderColorsPalette(){
         color3.classList= 'color';
     const color4= document.createElement('li');
         color4.classList= 'color';
-    const color5= document.createElement('li');
-        color5.classList= 'color';
-    const color6= document.createElement('li');
-        color6.classList= 'color';
 
-        ulPalette.append(color1, color2, color3, color4, color5, color6);
+        ulPalette.append(color1, color2, color3, color4);
 
 }
 renderColorsPalette();
