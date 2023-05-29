@@ -3,26 +3,26 @@ let boardListConfig= [];
 function renderElements(){
     const body= document.querySelector('body');
     const containerContent= document.createElement('div');
-        containerContent.classList= 'container-content'
+        containerContent.classList= 'container-content';
 
     const main= document.createElement('main');
     const topSection= document.createElement('section');
         topSection.classList='top-section';
     const bottomSection= document.createElement('section');
     const h1= document.createElement('h1');
-        h1.innerText= 'Paleta de Cores'
+        h1.innerText= 'Paleta de Cores';
         h1.id= 'title';
 
     const ulPalette= document.createElement('ul');
         ulPalette.id='color-palette';
         
-        topSection.insertAdjacentHTML('beforeend', '<button id="button-random-color">Cores aleatórias</button>')
+        topSection.insertAdjacentHTML('beforeend', '<button id="button-random-color">Cores aleatórias</button>');
 
     const inputZone= document.createElement('div');
             inputZone.classList='input-zone';
 
     const pixelContainer= document.createElement('div');
-            pixelContainer.classList= 'pixel-container'
+            pixelContainer.classList= 'pixel-container';
 
 
         body.appendChild(containerContent);
@@ -58,14 +58,15 @@ function renderInput(){
 
     const input= document.createElement('input');
         input.type= 'number';
-        input.max= '10';
-        input.min= '5'
+        input.max= '50';
+        input.min= '1'
         input.name= 'number';
         input.id= 'board-size';
         input.value= '5'
 
     const submit= document.createElement('button');
-        submit.id= 'generate-board'
+        submit.id= 'generate-board';
+        submit.name= 'number';
         submit.type= 'submit';
         submit.innerText='VQV';
 
@@ -115,31 +116,86 @@ function resetColors(){
 resetColors();
 
 
-function makeNumberOfPixels(){
-    const vqvButton= document.querySelector('#generate-board');
-    const inputNumber= document.querySelector('#board-size');
-        renderPixelBoard(inputNumber.value);
-    
-    vqvButton.addEventListener('click', (e)=>{
-        e.preventDefault();
-        const valueInput= document.querySelector('#board-size');
-    
-        let value= valueInput.value;
-        if(value < 0 || value > 10){
-            alert('Board inválido!')
-        }else{
-        const pixelBoard= document.querySelector('#pixel-board');
-        const clearBoard= document.querySelector('#clear-board');
-            pixelBoard.remove();
-            clearBoard.remove();
+function renderOrSavePixelBoard(){
 
-        renderPixelBoard(value);
-        clearPixelboard();
-        }
-    })
+    const inputNumber= document.querySelector('#board-size');
+
+    let pixelBoardLocalStorage= localStorage.getItem('boardSize');
+    
+
+    if(pixelBoardLocalStorage){
+       
+        
+        renderPixelBoard(pixelBoardLocalStorage);
+        
+
+    }else{
+        renderPixelBoard(inputNumber.value);
+
+        
+        
+    }
 
 }
-makeNumberOfPixels()
+renderOrSavePixelBoard();
+
+function makeNumberOfPixels(){
+    const vqvButton= document.querySelector('#generate-board');
+
+    vqvButton.addEventListener('click', (e)=>{
+            e.preventDefault();
+
+            localStorage.removeItem('boardSize');
+            const valueInputNew= document.querySelector('#board-size');
+
+            
+            let value= valueInputNew.value;
+            if(value <= 0 || value == ''){
+                alert('Board inválido!');
+            }else if(value > 0 && value < 5){
+                value = 5;
+                const pixelBoard= document.querySelector('#pixel-board');
+                const clearBoard= document.querySelector('#clear-board');
+                    pixelBoard.remove();
+                    clearBoard.remove();
+                    
+                    localStorage.setItem('boardSize', value);
+    
+                
+                renderOrSavePixelBoard();
+                clearPixelboard();
+                alert('tamanho redimensionado para 5px');
+
+            }else if(value > 50 ){
+                value = 50;
+                const pixelBoard= document.querySelector('#pixel-board');
+                const clearBoard= document.querySelector('#clear-board');
+                    pixelBoard.remove();
+                    clearBoard.remove();
+                    
+                    localStorage.setItem('boardSize', value);
+    
+                
+                renderOrSavePixelBoard();
+                clearPixelboard();
+                alert('tamanho redimensionado para 50px');
+            }else{
+                const pixelBoard= document.querySelector('#pixel-board');
+                const clearBoard= document.querySelector('#clear-board');
+                    pixelBoard.remove();
+                    clearBoard.remove();
+                    
+                    localStorage.setItem('boardSize', value);
+    
+                
+                renderOrSavePixelBoard();
+                clearPixelboard();
+            }
+            
+        })
+}
+makeNumberOfPixels();
+
 
 function renderPixelBoard(size){
     const pixelContainer= document.querySelector('.pixel-container');

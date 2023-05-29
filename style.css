@@ -82,7 +82,7 @@
 
 .pixel-container{
     background-color: green;
-    height: auto;
+    min-height: 20rem;
     display: flex;
     flex-direction: column;
    
