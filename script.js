@@ -62,7 +62,7 @@ function renderInput(){
         input.min= '1'
         input.name= 'number';
         input.id= 'board-size';
-        input.value= '5'
+        input.value= ''
 
     const submit= document.createElement('button');
         submit.id= 'generate-board';
@@ -130,9 +130,13 @@ function renderOrSavePixelBoard(){
         
 
     }else{
-        renderPixelBoard(inputNumber.value);
+        if(inputNumber.value == ''){
+            renderPixelBoard(5);
 
-        
+        }else{
+
+            renderPixelBoard(inputNumber.value);
+        }
         
     }
 
@@ -270,9 +274,9 @@ function clearPixelboard(){
     const clearBoard= document.querySelector('#clear-board');
     clearBoard.addEventListener('click', (e)=>{
         pixels.forEach(pixel=>{
-            pixel.style.backgroundColor= ''
-            pixel.id= ''
-            boardListConfig= []
+            pixel.style.backgroundColor= '';
+            pixel.id= '';
+            boardListConfig= [];
         })
     });
 
